@@ -16,7 +16,7 @@ import openfl.display.BitmapData;
 import flixel.FlxG;
 import flixel.input.keyboard.FlxKey;
 import flixel.FlxState;
-
+import debug.FPSCounter;
 @:bitmap("art/cursor.png") class Cursor extends BitmapData {}
 
 class InitState extends FlxState
@@ -42,12 +42,16 @@ class InitState extends FlxState
 		
 		funkin.backend.Highscore.load();
 		
-		#if LUA_ALLOWED funkin.backend.Mods.pushGlobalMods(); #end
-		funkin.backend.Mods.loadTopMod();
+		#if MODS_ALLOWED 
+        funkin.backend.Mods.pushGlobalMods(); 
+        funkin.backend.Mods.loadTopMod();
+        #end
 		
 		FlxG.fixedTimestep = false;
 		FlxG.game.focusLostFramerate = 60;
 		FlxG.keys.preventDefaultKeys = [TAB];
+
+        FPSCounter.init();
 		
 		FlxG.signals.postStateSwitch.add(onStateSwitchPost);
 		FlxG.signals.gameResized.add(onGameResize);
@@ -109,7 +113,6 @@ class InitState extends FlxState
 			sprite.__cacheBitmapData = null;
 		}
 	}
-	
 	static var _cursor:Cursor = new Cursor(0, 0);
 	
 	public static function onStateSwitchPost()

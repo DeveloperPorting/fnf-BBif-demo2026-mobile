@@ -1,10 +1,8 @@
 package funkin.backend;
 
-import Sys.sleep;
-
-import lime.app.Application;
-
 #if DISCORD_ALLOWED
+import Sys.sleep;
+import lime.app.Application;
 import hxdiscord_rpc.Discord;
 import hxdiscord_rpc.Types;
 

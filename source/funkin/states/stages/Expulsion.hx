@@ -1,36 +1,14 @@
 package funkin.states.stages;
 
-import away3d.library.Asset3DLibraryBundle;
-
-import openfl.utils.AssetLibrary;
-import openfl.events.Event;
-
-import away3d.core.render.Filter3DRenderer;
-import away3d.events.LoaderEvent;
-import away3d.loaders.misc.AssetLoaderToken;
-import away3d.materials.TextureMaterial;
-import away3d.entities.Mesh;
-import away3d.containers.ObjectContainer3D;
-import away3d.controllers.LookAtController;
-
-import openfl.geom.Vector3D;
-
-import away3d.cameras.Camera3D;
-import away3d.containers.Scene3D;
-import away3d.library.assets.Asset3DType;
-
 import openfl.net.URLRequest;
-
 import away3d.events.Asset3DEvent;
 import away3d.library.Asset3DLibrary;
 import away3d.loaders.parsers.AWDParser;
-
-import flixel.addons.transition.FlxTransitionableState;
-
+import away3d.library.Asset3DLibraryBundle;
+import away3d.events.LoaderEvent;
+import away3d.loaders.misc.AssetLoaderToken;
+import away3d.containers.Scene3D;
 import away3d.containers.View3D;
-import away3d.debug.AwayStats;
-
-import away3d.*;
 
 // some stuff needs hardcoding (maybe)
 class Expulsion extends BaseStage

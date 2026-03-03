@@ -65,15 +65,13 @@ class Main extends Sprite
 	{
 		super();
 		
-		#if (windows && cpp && !debug)
+		#if (windows && !debug)
 		funkin.backend.system.Windows.setDpiAware();
 		#end
-		
+
 		ClientPrefs.tryBindingSave('funkin');
 		addChild(new FNFGame(game.width, game.height, InitState, game.framerate, game.framerate, game.skipSplash, game.startFullscreen));
-		
-		FPSCounter.init();
-		
+	
 		#if linux
 		var icon = Image.fromFile("icon.png");
 		Lib.current.stage.window.setIcon(icon);
@@ -132,12 +130,14 @@ class FNFGame extends FlxGame
 {
 	override function create(_:Event)
 	{
-		_customSoundTray = CustomSoundTray;
-		super.create(_);
-		
+        #if windows
+		_customSoundTray = CustomSoundTray; // NÃO funciona no mobile ass: juse gst-
 		FlxG.sound.soundTray.volumeDownSound = 'assets/sounds/soundTrayMinus';
 		FlxG.sound.soundTray.volumeUpSound = 'assets/sounds/soundTrayPlus';
-		
+		#end
+
+        super.create(_);
+
 		// // KILL EVERYONE
 		// // atleast we arent shadowing flixel classes yahoo!
 		// #if FLX_SOUND_SYSTEM

@@ -29,7 +29,7 @@ class CoolUtil
 		
 		try
 		{
-			if (FileSystem.exists(path)) daList = File.getContent(path);
+			if (Assets.exists(path)) daList = Assets.getText(path);
 		}
 		catch (e) {}
 		

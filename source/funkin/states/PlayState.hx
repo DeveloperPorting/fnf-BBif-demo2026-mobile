@@ -441,10 +441,12 @@ class PlayState extends MusicBeatState
 		add(dadGroup);
 		add(boyfriendGroup);
 		
+        #if LUA_ALLOWED
 		luaDebugGroup = new FlxTypedGroup<DebugLuaText>();
 		luaDebugGroup.cameras = [camOther];
 		add(luaDebugGroup);
-		
+		#end
+        
 		// "GLOBAL" SCRIPTS
 		#if HSCRIPT_ALLOWED
 		for (folder in Mods.directoriesWithFile(Paths.getSharedPath(), 'scripts/'))
