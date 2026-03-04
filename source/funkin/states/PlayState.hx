@@ -678,7 +678,9 @@ class PlayState extends MusicBeatState
 		
 		cacheCountdown();
 		
+        #if windows
 		setWindowName();
+        #end
 		
 		super.create();
 		FunkinAssets.cache.clearUnusedMemory();
