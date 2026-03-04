@@ -1770,6 +1770,11 @@ class PlayState extends MusicBeatState
 		
 		callOnScripts('onUpdate', [elapsed]);
 		
+		#if mobile
+		if (controls.isInSubstate)
+            controls.isInSubstate = false;
+        #end
+		
 		if (generatedMusic && !endingSong && !isCameraOnForcedPos) moveCamera();
 		
 		// if (combo >= 10) showCombo = true;
@@ -1786,7 +1791,7 @@ class PlayState extends MusicBeatState
 			botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
 		}
 		
-		if (controls.PAUSE && startedCountdown && canPause)
+		if (controls.PAUSE #if android || FlxG.android.justReleased.BACK #end && startedCountdown && canPause)
 		{
 			var ret:Dynamic = callOnScripts('onPause', null, true);
 			if (ret != Constants.SCRIPT_STOP)
