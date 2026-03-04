@@ -63,8 +63,10 @@ class PlayMenuState extends MusicBeatState
 		
 		changeSel();
 		
+        #if mobile
 		addVirtualPad(NONE, B);
 		addVirtualPadCamera();
+        #end
 	}
 	
 	var selectedSomething:Bool = false;

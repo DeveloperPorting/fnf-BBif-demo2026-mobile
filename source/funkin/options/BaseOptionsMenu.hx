@@ -115,8 +115,10 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		underline.y = grpOptions.members[0].y + grpOptions.members[0].height;
 		addBehind(underline);
 		
+        #if mobile
 		addVirtualPad(LEFT_FULL, A_B);
 		addVirtualPadCamera();
+        #end
 		
 		changeSelection();
 		reloadCheckboxes();

@@ -83,7 +83,9 @@ class StoryMenu extends MusicBeatUIState
 			firstTime = false;
 			sky.scale.set(3, 3);
 			clouds.scale.set(2, 2);
+            #if mobile
 			virtualPad.alpha = 0;
+            #end
 			
 			sign.y += camera.viewHeight;
 			select.y += camera.viewHeight;
@@ -92,7 +94,9 @@ class StoryMenu extends MusicBeatUIState
 			FlxG.camera.fade(FlxColor.BLACK, 6, true);
 			
 			FlxTween.tween(clouds.scale, {x: 1.05, y: 1.05}, 6, {ease: FlxEase.smoothStepOut});
+            #if mobile
 			FlxTween.tween(virtualPad, {alpha: 0.5}, 6, {ease: FlxEase.smoothStepOut});
+            #end
 			FlxTween.tween(sky.scale, {x: 1, y: 1}, 6,
 				{
 					ease: FlxEase.smoothStepOut,
