@@ -41,7 +41,6 @@ var animSuffix:String = '';
 
 //
 var intro:FunkinVideoSprite;
-var introReady:Bool = false;
 var skipIntro:Bool = false;
 var ditherSprite:FlxSprite;
 
@@ -68,7 +67,6 @@ function onCreate()
 		
 		intro.visible = false;
 		intro.pause();
-		introReady = true;
 		startCountdown();
 	});
 	intro.tiedToGame = false;
@@ -237,12 +235,12 @@ function onCreate()
 	setVar('firewall_colourSwap', colorSwap);
 }
 
-function onStartCountdown()
+/*function onStartCountdown()
 {
 	if (!introReady) return Constants.SCRIPT_STOP;
 	
 	return Constants.SCRIPT_CONTINUE;
-}
+}*/
 
 function onCreatePost()
 {
