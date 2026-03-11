@@ -31,17 +31,13 @@ import funkin.utils.RandomUtil;
 
 import flixel.FlxSprite;
 
-var bfAtlas:FlxAnimate;
-
 function onCreate()
 {
 	Story.mathMisses = 0;
 	
 	initScript('scripts/thinkpad/script.hx');
 	
-	bfAtlas = getVar('thinkpad_bfAtlas');
-	
-	bfAtlas.visible = false;
+	getVar('thinkpad_bfAtlas').visible = false;
 }
 
 function onCreatePost()
@@ -101,7 +97,7 @@ function onEvent(ev, v1, v2, time)
 					getVar('thinkpad_baldiAtlas').playAnim('failed');
 					getVar('thinkpad_baldiAtlas').atlas.anim.onFinish.removeAll();
 					getVar('thinkpad_baldiAtlas').visible = true;
-					bfAtlas.visible = false;
+					getVar('thinkpad_bfAtlas').visible = false;
 				case 'fakeCheckMath':
 					getVar('thinkpad_mathResolver').input = -10;
 					getVar('thinkpad_mathResolver').resolveMath();
