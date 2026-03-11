@@ -1,5 +1,3 @@
-package assets.data.lesson;
-
 import funkin.Constants;
 
 import flixel.addons.transition.FlxTransitionableState;
@@ -31,13 +29,17 @@ import funkin.utils.RandomUtil;
 
 import flixel.FlxSprite;
 
+var bfAtlas:FlxAnimate;
+
 function onCreate()
 {
 	Story.mathMisses = 0;
 	
 	initScript('scripts/thinkpad/script.hx');
 	
-	getVar('thinkpad_bfAtlas').visible = false;
+	bfAtlas = getVar('thinkpad_spawnBf')();
+	
+	bfAtlas.visible = false;
 }
 
 function onCreatePost()
@@ -97,7 +99,7 @@ function onEvent(ev, v1, v2, time)
 					getVar('thinkpad_baldiAtlas').playAnim('failed');
 					getVar('thinkpad_baldiAtlas').atlas.anim.onFinish.removeAll();
 					getVar('thinkpad_baldiAtlas').visible = true;
-					getVar('thinkpad_bfAtlas').visible = false;
+					bfAtlas.visible = false;
 				case 'fakeCheckMath':
 					getVar('thinkpad_mathResolver').input = -10;
 					getVar('thinkpad_mathResolver').resolveMath();

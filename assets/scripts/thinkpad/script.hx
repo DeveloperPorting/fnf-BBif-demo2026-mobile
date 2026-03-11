@@ -66,17 +66,6 @@ function onCreate()
 	startCharacterPos(atlas, false);
 	atlas.visible = false;
 	
-	bfAtlas = new FlxAnimate();
-	Paths.loadAnimateAtlas(bfAtlas, "mechanics/thinkpad/mathBf");
-	bfAtlas.anim.addBySymbol('aha', 'aha', 24, false);
-	bfAtlas.cameras = [thinkCam];
-	bfAtlas.scale.set(0.3, 0.3);
-	bfAtlas.visible = false;
-	bfAtlas.updateHitbox();
-	bfAtlas.setPosition(330, 460);
-	
-	insert(members.indexOf(atlas), bfAtlas);
-	
 	atlas.atlas.anim.onFinish.add((anim) -> atlas.playAnim('idle'));
 	
 	atlasCover = new AttachedSprite();
@@ -159,12 +148,12 @@ function onCreate()
 	thinkCam.alpha = 0;
 	thinkCam.scroll.y = -FlxG.height;
 	
-	variables.set('thinkpad_baldiAtlas', atlas);
-	variables.set('thinkpad_thinkCam', thinkCam);
-    variables.set('thinkpad_bfAtlas', bfAtlas);
-	variables.set('thinkpad_thinkPadText', thinkPadText);
-	variables.set('thinkpad_typedText', typedText);
-	variables.set('thinkpad_mathResolver', mathResolver);
+	setVar('thinkpad_baldiAtlas', atlas);
+	setVar('thinkpad_thinkCam', thinkCam);
+	setVar('thinkpad_spawnBf', spawnBfAtlas);
+	setVar('thinkpad_thinkPadText', thinkPadText);
+	setVar('thinkpad_typedText', typedText);
+	setVar('thinkpad_mathResolver', mathResolver);
 }
 
 function onEvent(ev, v1, v2, time)
@@ -310,6 +299,21 @@ function moveThinkpad(appear)
 				}
 			});
 	}
+}
+
+function spawnBfAtlas()
+{
+	bfAtlas = new FlxAnimate();
+	Paths.loadAnimateAtlas(bfAtlas, "mechanics/thinkpad/mathBf");
+	bfAtlas.anim.addBySymbol('aha', 'aha', 24, false);
+	bfAtlas.cameras = [thinkCam];
+	bfAtlas.scale.set(0.3, 0.3);
+	bfAtlas.updateHitbox();
+	bfAtlas.setPosition(330, 460);
+	
+	insert(members.indexOf(atlas), bfAtlas);
+	
+	return bfAtlas;
 }
 
 var boxSize = 89 * 0.67;
