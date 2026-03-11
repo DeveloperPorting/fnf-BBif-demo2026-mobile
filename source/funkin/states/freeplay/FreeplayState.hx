@@ -156,7 +156,7 @@ class FreeplayState extends MusicBeatUIState
 		}
 		
 		#if mobile
-		addVirtualPad(NONE, B);
+		addVirtualPad(NONE, B_C);
 		addVirtualPadCamera();
 		#end
 		
@@ -277,7 +277,7 @@ class FreeplayState extends MusicBeatUIState
 				canInteract = false;
 				FlxG.switchState(() -> new PlayMenuState());
 			}
-			else if (FlxG.keys.justPressed.CONTROL)
+			else if (FlxG.keys.justPressed.CONTROL #if mobile || virtualPad.buttonC.justPressed #end)
 			{
 				persistentUpdate = false;
 				openSubState(new funkin.substates.GameplayChangersSubstate());
