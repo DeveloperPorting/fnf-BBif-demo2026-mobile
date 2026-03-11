@@ -159,12 +159,12 @@ function onCreate()
 	thinkCam.alpha = 0;
 	thinkCam.scroll.y = -FlxG.height;
 	
-	setVar('thinkpad_baldiAtlas', atlas);
-	setVar('thinkpad_thinkCam', thinkCam);
-	setVar('thinkpad_bfAtlas', bfAtlas);
-	setVar('thinkpad_thinkPadText', thinkPadText);
-	setVar('thinkpad_typedText', typedText);
-	setVar('thinkpad_mathResolver', mathResolver);
+	variables.set('thinkpad_baldiAtlas', atlas);
+	variables.set('thinkpad_thinkCam', thinkCam);
+    variables.set('thinkpad_bfAtlas', bfAtlas);
+	variables.set('thinkpad_thinkPadText', thinkPadText);
+	variables.set('thinkpad_typedText', typedText);
+	variables.set('thinkpad_mathResolver', mathResolver);
 }
 
 function onEvent(ev, v1, v2, time)
