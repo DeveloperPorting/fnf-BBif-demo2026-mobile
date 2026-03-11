@@ -37,14 +37,14 @@ function onCreate()
 	
 	initScript('scripts/thinkpad/script.hx');
 	
-	getVar('thinkpad_bfAtlas').visible = false;
+	bfAtlas.visible = false;
 }
 
 function onCreatePost()
 {
-	getVar('thinkpad_baldiAtlas').atlas.anim.onFinish.removeAll();
+	atlas.atlas.anim.onFinish.removeAll();
 	
-	getVar('thinkpad_baldiAtlas').atlas.anim.onFinish.add((anim) -> getVar('thinkpad_baldiAtlas').playAnim('idle-mad'));
+	atlas.atlas.anim.onFinish.add((anim) -> getVar('thinkpad_baldiAtlas').playAnim('idle-mad'));
 	
 	if (PlayState.isStoryMode)
 	{
@@ -94,10 +94,10 @@ function onEvent(ev, v1, v2, time)
 			{
 				case "makeAngry":
 					getVar('setBaldiAnim')('-mad');
-					getVar('thinkpad_baldiAtlas').playAnim('failed');
-					getVar('thinkpad_baldiAtlas').atlas.anim.onFinish.removeAll();
-					getVar('thinkpad_baldiAtlas').visible = true;
-					getVar('thinkpad_bfAtlas').visible = false;
+					atlas.playAnim('failed');
+					atlas.atlas.anim.onFinish.removeAll();
+					atlas.visible = true;
+					bfAtlas.visible = false;
 				case 'fakeCheckMath':
 					getVar('thinkpad_mathResolver').input = -10;
 					getVar('thinkpad_mathResolver').resolveMath();

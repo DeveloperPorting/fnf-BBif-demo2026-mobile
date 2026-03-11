@@ -71,7 +71,7 @@ function onCreate()
 	bfAtlas.anim.addBySymbol('aha', 'aha', 24, false);
 	bfAtlas.cameras = [thinkCam];
 	bfAtlas.scale.set(0.3, 0.3);
-	bfAtlas.visible = true;
+	bfAtlas.visible = false;
 	bfAtlas.updateHitbox();
 	bfAtlas.setPosition(330, 460);
 	
